@@ -19,6 +19,6 @@ public class CommonController {
 	
 	@GetMapping("/test")
 	public String test_test() throws Exception{
-		return "Hello World new branch";
+		return "Hello World";
 	}
 }
