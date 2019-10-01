@@ -1,0 +1,44 @@
+spring:
+       profiles:
+                active: local
+# local 환경
+---
+spring:
+       datasource:
+                  driverclassname: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+                  url: jdbc:log4jdbc:mysql://127.0.0.1:3306/digitalworks?serverTimezone=UTC
+                  username: DWUSER
+                  password: DWUSER1123
+       mvc:
+           view:
+                prefix: /WEB-INF/jsp/
+                suffix: .jsp
+---
+spring.mvc.view.prefix: /WEB-INF/jsp/
+spring.mvc.view.suffix: .jsp
+
+logging:
+  path: c:/dev/log/spring
+  file: log-file
+  
+---
+spring:
+  profiles: log-windows
+  
+logging:
+  path: c:/dev/log/spring
+---
+spring:
+  profiles: log-linux
+  
+logging:
+  path: /log/spring/
+  
+---
+restTemplate:
+    factory:
+        readTimeout: 5000 
+        connectTimeout: 3000
+    httpClient:
+        maxConnTotal: 100
+        maxConnPerRoute: 5
